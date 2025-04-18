@@ -23,7 +23,7 @@ jobs:
           pip freeze > requirements.txt
 
       - name: Upload requirements.txt as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: requirements
           path: requirements.txt

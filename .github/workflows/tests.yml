@@ -15,6 +15,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      
+      - name: Save requirements.txt as artifact
+        run: |
+          pip freeze > requirements.txt
+          uses: actions/upload-artifact@v3
+          with:
+            name: requirements
+            path: requirements.txt
 
       - name: Install dependencies
         run: |

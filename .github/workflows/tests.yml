@@ -25,6 +25,7 @@ jobs:
           pip install -r requirements.txt
           pip install fastapi
           pip install uvicorn
+          pip install pydantic_settings
           pip install pytest httpx
 
       - name: Run tests

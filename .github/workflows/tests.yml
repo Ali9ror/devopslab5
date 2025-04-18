@@ -16,17 +16,15 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install dependencies and create requirements.txt
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install fastapi uvicorn pydantic_settings pytest httpx
           pip freeze > requirements.txt
-
-      - name: Upload requirements.txt as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: requirements
-          path: requirements.txt
+          pip install -r requirements.txt
+          pip install fastapi
+          pip install uvicorn
+          pip install pydantic_settings
+          pip install pytest httpx
 
       - name: Run tests
         run: python -m pytest "tests/"
